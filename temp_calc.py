@@ -33,10 +33,6 @@ dv=np.sqrt(dvm**2 + dvc**2)
 dte=0.5
 dtc=.05
 
-def pc_lin(x, x0, y1, k1, y2, k2):
-    return np.piecewise(x, [x < x0], [lambda x:k1*x + y1, lambda x:k2*x + y2])
-
-
 def getT(V,co,kelvin=False):
     coefs=np.flip(co)
     k=0
@@ -104,3 +100,4 @@ tcc=getT(vdi,cmlo,kelvin=True)
 dtcc=np.std(tcc)
 dt=np.sqrt(dte**2 + dtc**2 + dtcc**2)
 print('Superconducting Temperature: ',temp_avg, ' +/- ',dt)
+
